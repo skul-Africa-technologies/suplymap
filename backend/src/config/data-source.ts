@@ -19,4 +19,3 @@ const options: DataSourceOptions = {
 };
 
 export default new DataSource(options);
-

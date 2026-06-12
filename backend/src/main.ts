@@ -6,9 +6,25 @@ import { ConfigService } from '@nestjs/config';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { NestExpressApplication } from '@nestjs/platform-express';
+import AppDataSource from './config/data-source';
 
 async function bootstrap() {
   const logger = new Logger('Bootstrap');
+
+  // Apply pending migrations before the app starts
+  try {
+    logger.log('🔄 Running pending migrations...');
+    await AppDataSource.initialize();
+    await AppDataSource.runMigrations();
+    await AppDataSource.destroy();
+    logger.log('✅ Migrations applied successfully.');
+  } catch (err) {
+    logger.error('❌ Migration failed:', err);
+    if (err instanceof Error) {
+      throw new Error('Startup aborted: migration error. ' + err.message);
+    }
+    throw err;
+  }
 
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.set('trust proxy', 1);

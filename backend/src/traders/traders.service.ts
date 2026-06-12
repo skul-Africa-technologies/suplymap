@@ -19,10 +19,9 @@ export class TradersService {
   ): Promise<TraderSummaryDto[]> {
     const qb = this.usersRepo
       .createQueryBuilder('user')
-      .select([
+       .select([
         'user.id',
-        'user.firstName',
-        'user.lastName',
+        'user.fullName',
         'user.industry',
         'user.email',
         'user.rating',

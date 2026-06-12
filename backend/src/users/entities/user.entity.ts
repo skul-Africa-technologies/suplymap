@@ -14,11 +14,8 @@ export class User {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
 
-  @Column({ name: 'first_name' })
-  firstName!: string;
-
-  @Column({ name: 'last_name' })
-  lastName!: string;
+  @Column({ name: 'full_name' })
+  fullName!: string;
 
   @Column()
   industry!: string;

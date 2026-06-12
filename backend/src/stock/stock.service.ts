@@ -92,7 +92,7 @@ export class StockService {
     });
     return {
       ...dto,
-      traderName: post.trader?.firstName ?? '',
+      traderName: post.trader?.fullName ?? '',
       traderRating: post.trader?.rating ?? 0,
     };
   }

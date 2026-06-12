@@ -7,15 +7,10 @@ import {
 } from 'class-validator';
 
 export class RegisterDto {
-  @ApiProperty({ example: 'Ade' })
+  @ApiProperty({ example: 'Ade Bakare' })
   @IsString()
   @IsNotEmpty()
-  firstName!: string;
-
-  @ApiProperty({ example: 'Bakare' })
-  @IsString()
-  @IsNotEmpty()
-  lastName!: string;
+  fullName!: string;
 
   @ApiProperty({ example: 'Wholesale Rice Trading' })
   @IsString()

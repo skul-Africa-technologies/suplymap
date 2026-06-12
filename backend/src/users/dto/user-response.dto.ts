@@ -7,12 +7,8 @@ export class UserResponseDto {
   id!: string;
 
   @Expose()
-  @ApiProperty({ example: 'Ade' })
-  firstName!: string;
-
-  @Expose()
-  @ApiProperty({ example: 'Bakare' })
-  lastName!: string;
+  @ApiProperty({ example: 'Ade Bakare' })
+  fullName!: string;
 
   @Expose()
   @ApiProperty({ example: 'Wholesale Rice Trading' })

@@ -31,8 +31,7 @@ export class TradersController {
       example: [
         {
           id: '770e8400-e29b-41d4-a716-446655440002',
-          firstName: 'Ade',
-          lastName: 'Bakare',
+          fullName: 'Ade Bakare',
           industry: 'Wholesale Rice Trading',
           email: 'ade@example.com',
           rating: 4.5,

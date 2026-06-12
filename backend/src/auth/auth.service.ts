@@ -29,8 +29,7 @@ export class AuthService {
   async register(dto: RegisterDto): Promise<AuthResponseDto> {
     const passwordHash = await hash(dto.password, 12);
     const user = await this.usersService.create({
-      firstName: dto.firstName,
-      lastName: dto.lastName,
+      fullName: dto.fullName,
       industry: dto.industry,
       email: dto.email,
       passwordHash,

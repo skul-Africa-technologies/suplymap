@@ -5,7 +5,9 @@ services:
     plan: starter
     rootDir: backend
     buildCommand: npm ci && npm run build
-    startCommand: npm run start:prod
+    startCommand: |
+      npx typeorm-ts-node-commonjs migration:run -d src/config/data-source.ts &&
+      npm run start:prod
     envVars:
       - key: NODE_ENV
         value: production
