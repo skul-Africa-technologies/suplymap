@@ -1,15 +1,19 @@
 import { Injectable, NotFoundException, OnModuleInit } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { randomUUID } from 'crypto';
-import { readFileSync } from 'fs';
-import { join } from 'path';
 import { Repository } from 'typeorm';
 import { plainToInstance } from 'class-transformer';
+import type { RawMarketRow } from './types';
 import { StateMarketData } from './entities/state-market-data.entity';
 import { OpportunityAlertDto } from './dto/opportunity-alert.dto';
 import { StateMarketResponseDto } from './dto/state-market-response.dto';
 import { StateDetailResponseDto } from './dto/state-detail-response.dto';
 import { User } from '../users/entities/user.entity';
+import { riceData as RiceData } from './data/rice-data';
+import { CementData } from './data/cement-data';
+import { SugarData } from './data/sugar-data';
+import { FlourData } from './data/flour-data';
+import { CookingOilData } from './data/cooking_oil-data';
 
 export const SUPPORTED_PRODUCTS = [
   'Rice',
@@ -19,20 +23,13 @@ export const SUPPORTED_PRODUCTS = [
   'Cooking Oil',
 ] as const;
 
-interface RawMarketRow {
-  state_name: string;
-  product: string;
-  demand_score: number;
-  supply_score: number;
-  trend: string;
-  shortage_risk: string | string[];
-  opportunity: boolean;
-  price_per_unit?: number;
-  price_trend?: string;
-  nearby_suppliers?: number;
-  trend_7days?: number[];
-  price_history?: number[];
-}
+const PRODUCT_DATA: Record<string, readonly RawMarketRow[]> = {
+  Rice: RiceData,
+  Cement: CementData,
+  Sugar: SugarData,
+  Flour: FlourData,
+  'Cooking Oil': CookingOilData,
+};
 
 @Injectable()
 export class MarketService implements OnModuleInit {
@@ -43,9 +40,7 @@ export class MarketService implements OnModuleInit {
 
   async onModuleInit(): Promise<void> {
     for (const product of SUPPORTED_PRODUCTS) {
-      const filename = `${product.toLowerCase().replace(/ /g, '_')}.json`;
-      const filePath = join(process.cwd(), 'data', filename);
-      const raw = JSON.parse(readFileSync(filePath, 'utf-8')) as RawMarketRow[];
+      const raw = PRODUCT_DATA[product] ?? [];
 
       for (const row of raw) {
         const existing = await this.stateMarketRepo.findOne({
