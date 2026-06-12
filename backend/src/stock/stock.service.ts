@@ -1,16 +1,9 @@
-import {
-  ForbiddenException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { plainToInstance } from 'class-transformer';
 import { StockPost } from './entities/stock-post.entity';
-import {
-  CreateStockPostDto,
-  BrowseStockDto,
-} from './dto/create-stock-post.dto';
+import { BrowseStockDto, CreateStockPostDto } from './dto/create-stock-post.dto';
 import { StockPostResponseDto } from './dto/stock-post-response.dto';
 import { User } from '../users/entities/user.entity';
 
@@ -21,10 +14,7 @@ export class StockService {
     private readonly stockRepo: Repository<StockPost>,
   ) {}
 
-  async create(
-    dto: CreateStockPostDto,
-    user: User,
-  ): Promise<StockPostResponseDto> {
+  async create(dto: CreateStockPostDto, user: User): Promise<StockPostResponseDto> {
     const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
     const post = this.stockRepo.create({
       product: dto.product,
@@ -52,12 +42,9 @@ export class StockService {
       .where('post.expires_at > NOW()')
       .andWhere('post.trader_id != :self', { self: user.id });
 
-    const products = query.product ? [query.product] : user.products;
-    if (products.length === 0) {
-      return [];
+    if (query.product) {
+      qb.andWhere('post.product = :product', { product: query.product });
     }
-
-    qb.andWhere('post.product IN (:...products)', { products });
 
     if (query.state) {
       qb.andWhere('LOWER(post.state) = LOWER(:state)', { state: query.state });
@@ -79,7 +66,7 @@ export class StockService {
     }
 
     if (post.traderId !== userId) {
-      throw new ForbiddenException('You can only delete your own posts.');
+      throw new NotFoundException('Post not found.');
     }
 
     await this.stockRepo.remove(post);
@@ -105,7 +92,7 @@ export class StockService {
     });
     return {
       ...dto,
-      traderName: post.trader?.fullName ?? '',
+      traderName: post.trader?.firstName ?? '',
       traderRating: post.trader?.rating ?? 0,
     };
   }

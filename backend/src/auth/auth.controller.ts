@@ -35,7 +35,8 @@ export class AuthController {
           type: 'object',
           example: {
             id: '660e8400-e29b-41d4-a716-446655440001',
-            fullName: 'Ade Bakare',
+            fullName: 'Ade',
+            lastName: 'Bakare',
             email: 'ade@example.com',
             phone: '08012345678',
             role: 'wholesaler',
@@ -72,7 +73,8 @@ export class AuthController {
           type: 'object',
           example: {
             id: '660e8400-e29b-41d4-a716-446655440001',
-            fullName: 'Ade Bakare',
+            fullName: 'Ade',
+            lastName: 'Bakare',
             email: 'ade@example.com',
             phone: '08012345678',
             role: 'wholesaler',

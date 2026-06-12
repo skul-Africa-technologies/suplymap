@@ -97,15 +97,7 @@ export class MarketService implements OnModuleInit {
 
   async findPersonalisedAlerts(user: User): Promise<OpportunityAlertDto[]> {
     const alerts: OpportunityAlertDto[] = [];
-    for (const product of user.products) {
-      if (
-        !SUPPORTED_PRODUCTS.includes(
-          product as (typeof SUPPORTED_PRODUCTS)[number],
-        )
-      ) {
-        continue;
-      }
-
+    for (const product of SUPPORTED_PRODUCTS) {
       const data = await this.stateMarketRepo.find({ where: { product } });
       alerts.push(...this.computeAlerts(product, data));
     }

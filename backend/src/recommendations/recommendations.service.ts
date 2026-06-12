@@ -35,7 +35,7 @@ export class RecommendationsService {
       throw new NotFoundException('State data not found.');
     }
 
-    const prompt = this.buildPrompt(stateData, user.role);
+    const prompt = this.buildPrompt(stateData, user.industry);
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
@@ -73,7 +73,7 @@ export class RecommendationsService {
   private buildPrompt(state: StateMarketData, role: string): string {
     return `You are a Nigerian commodity trade advisor. Give a short, direct, actionable recommendation.
 
-Trader role: ${role}
+Trader industry: ${role}
 Product: ${state.product}
 State: ${state.stateName}
 Demand score: ${state.demandScore}/100

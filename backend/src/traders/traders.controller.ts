@@ -1,18 +1,17 @@
-import { Controller, Get, Param, Query, UseGuards, Body, Post, Delete } from '@nestjs/common';
+import { Controller, Get, Param, Query, UseGuards } from '@nestjs/common';
 import {
   ApiBearerAuth,
   ApiOperation,
   ApiQuery,
   ApiResponse,
   ApiTags,
-  ApiBody,
 } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
 import { CurrentUser } from '../common/decorators/current-user.decorator';
 import { TradersService } from './traders.service';
 import { FindTradersDto } from './dto/find-traders.dto';
 import { TraderSummaryDto } from './dto/trader-summary.dto';
-import { User, TraderRole } from '../users/entities/user.entity';
+import { User } from '../users/entities/user.entity';
 
 @ApiTags('traders')
 @ApiBearerAuth()
@@ -22,15 +21,8 @@ export class TradersController {
 
   @Get()
   @UseGuards(JwtAuthGuard)
-  @ApiOperation({ summary: 'Discover traders by product, state, and role' })
+  @ApiOperation({ summary: 'Find traders by industry keyword' })
   @ApiQuery({ name: 'product', required: true, example: 'Rice' })
-  @ApiQuery({ name: 'state', required: false, example: 'Lagos' })
-  @ApiQuery({
-    name: 'role',
-    required: false,
-    enum: TraderRole,
-    example: TraderRole.WHOLESALER,
-  })
   @ApiResponse({
     status: 200,
     description: 'List of matching traders.',
@@ -39,11 +31,10 @@ export class TradersController {
       example: [
         {
           id: '770e8400-e29b-41d4-a716-446655440002',
-          fullName: 'Ade Wholesale Ltd',
-          role: 'wholesaler',
-          state: 'Lagos',
-          lga: 'Ikeja',
-          products: ['Rice', 'Sugar', 'Flour'],
+          firstName: 'Ade',
+          lastName: 'Bakare',
+          industry: 'Wholesale Rice Trading',
+          email: 'ade@example.com',
           rating: 4.5,
           totalRatings: 27,
           verified: true,
@@ -61,9 +52,7 @@ export class TradersController {
 
   @Get(':id')
   @UseGuards(JwtAuthGuard)
-  @ApiOperation({
-    summary: 'Single trader profile with phone revealed after connection',
-  })
+  @ApiOperation({ summary: 'Single trader profile' })
   @ApiResponse({
     status: 200,
     description: 'Trader profile found.',
@@ -71,15 +60,13 @@ export class TradersController {
       type: 'object',
       example: {
         id: '770e8400-e29b-41d4-a716-446655440002',
-        fullName: 'Ade Wholesale Ltd',
-        role: 'wholesaler',
-        state: 'Lagos',
-        lga: 'Ikeja',
-        products: ['Rice', 'Sugar', 'Flour'],
+        firstName: 'Ade',
+        lastName: 'Bakare',
+        industry: 'Wholesale Rice Trading',
+        email: 'ade@example.com',
         rating: 4.5,
         totalRatings: 27,
         verified: true,
-        phone: '08012345678',
       },
     },
   })

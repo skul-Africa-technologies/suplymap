@@ -29,14 +29,11 @@ export class AuthService {
   async register(dto: RegisterDto): Promise<AuthResponseDto> {
     const passwordHash = await hash(dto.password, 12);
     const user = await this.usersService.create({
-      fullName: dto.fullName,
+      firstName: dto.firstName,
+      lastName: dto.lastName,
+      industry: dto.industry,
       email: dto.email,
-      phone: dto.phone,
       passwordHash,
-      role: dto.role,
-      products: dto.products,
-       state: dto.state,
-      lga: dto.lga ?? null,
     });
 
     const tokens = await this.issueTokens(user.id);

@@ -1,31 +1,26 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Expose } from 'class-transformer';
-import { TraderRole } from '../../users/entities/user.entity';
 
 export class TraderSummaryDto {
   @Expose()
-  @ApiProperty({ example: '550e8400-e29b-41d4-a716-446655440000' })
+  @ApiProperty({ example: '660e8400-e29b-41d4-a716-446655440000' })
   id!: string;
 
   @Expose()
-  @ApiProperty({ example: 'Ade Wholesale Ltd' })
-  fullName!: string;
+  @ApiProperty({ example: 'Ade' })
+  firstName!: string;
 
   @Expose()
-  @ApiProperty({ enum: TraderRole, example: TraderRole.WHOLESALER })
-  role!: TraderRole;
+  @ApiProperty({ example: 'Bakare' })
+  lastName!: string;
 
   @Expose()
-  @ApiProperty({ example: 'Lagos' })
-  state!: string;
+  @ApiProperty({ example: 'Wholesale Rice Trading' })
+  industry!: string;
 
   @Expose()
-  @ApiPropertyOptional({ example: 'Ikeja' })
-  lga!: string | null;
-
-  @Expose()
-  @ApiProperty({ type: [String], example: ['Rice', 'Sugar', 'Flour'] })
-  products!: string[];
+  @ApiProperty({ example: 'ade@example.com' })
+  email!: string;
 
   @Expose()
   @ApiProperty({ example: 4.5 })
@@ -38,8 +33,4 @@ export class TraderSummaryDto {
   @Expose()
   @ApiProperty({ example: true })
   verified!: boolean;
-
-  @Expose({ groups: ['profile'] })
-  @ApiPropertyOptional({ example: '08012345678' })
-  phone?: string;
 }

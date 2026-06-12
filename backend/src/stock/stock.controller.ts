@@ -1,24 +1,18 @@
-import { Controller, Post, Get, Delete, Param, Body, Query, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, Query, UseGuards, Body, Post, Delete } from '@nestjs/common';
 import {
   ApiBearerAuth,
   ApiOperation,
   ApiQuery,
   ApiResponse,
   ApiTags,
-  ApiBody,
 } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
-import { RolesGuard } from '../common/guards/roles.guard';
-import { Roles } from '../common/decorators/roles.decorator';
 import { CurrentUser } from '../common/decorators/current-user.decorator';
 import { StockService } from './stock.service';
-import {
-  CreateStockPostDto,
-  BrowseStockDto,
-} from './dto/create-stock-post.dto';
+import { BrowseStockDto, CreateStockPostDto } from './dto/create-stock-post.dto';
 import { StockPostResponseDto } from './dto/stock-post-response.dto';
 import { StockStatus } from './entities/stock-post.entity';
-import { TraderRole, User } from '../users/entities/user.entity';
+import { User } from '../users/entities/user.entity';
 
 @ApiTags('stock')
 @ApiBearerAuth()
@@ -27,10 +21,8 @@ export class StockController {
   constructor(private readonly stockService: StockService) {}
 
   @Post()
-  @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles(TraderRole.WHOLESALER, TraderRole.DISTRIBUTOR, TraderRole.MANUFACTURER)
+  @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: 'Create an available or wanted stock post' })
-  @ApiBody({ type: CreateStockPostDto })
   @ApiResponse({
     status: 201,
     description: 'Stock post created successfully.',
@@ -42,19 +34,17 @@ export class StockController {
         quantity: '50 bags',
         pricePerUnit: 85000,
         status: 'available',
-        description: 'Premium grade rice, well bagged',
+        description: 'Premium grade rice',
         state: 'Lagos',
         lga: 'Ikeja',
         expiresAt: '2026-06-19T10:00:00.000Z',
         createdAt: '2026-06-12T14:00:00.000Z',
         traderId: '660e8400-e29b-41d4-a716-446655440001',
-        traderName: 'Ade Wholesale Ltd',
+        traderName: 'Ade Bakare',
         traderRating: 4.5,
       },
     },
   })
-  @ApiResponse({ status: 403, description: 'Only wholesalers, distributors, and manufacturers can create posts.' })
-  @ApiResponse({ status: 401, description: 'Unauthorized.' })
   async createPost(
     @Body() dto: CreateStockPostDto,
     @CurrentUser() user: User,
@@ -82,19 +72,18 @@ export class StockController {
           quantity: '50 bags',
           pricePerUnit: 85000,
           status: 'available',
-          description: 'Premium grade rice, well bagged',
+          description: 'Premium grade rice',
           state: 'Lagos',
           lga: 'Ikeja',
           expiresAt: '2026-06-19T10:00:00.000Z',
           createdAt: '2026-06-12T14:00:00.000Z',
           traderId: '660e8400-e29b-41d4-a716-446655440001',
-          traderName: 'Ade Wholesale Ltd',
+          traderName: 'Ade Bakare',
           traderRating: 4.5,
         },
       ],
     },
   })
-  @ApiResponse({ status: 401, description: 'Unauthorized.' })
   async browse(
     @Query() query: BrowseStockDto,
     @CurrentUser() user: User,

@@ -8,12 +8,10 @@ import { Repository } from 'typeorm';
 import { plainToInstance } from 'class-transformer';
 import { User } from './entities/user.entity';
 import { UserResponseDto } from './dto/user-response.dto';
-import { UpdateProfileDto } from './dto/update-profile.dto';
 import type { RegisterDto } from '../auth/dto/register.dto';
 
-type CreateUserInput = Omit<RegisterDto, 'password' | 'lga'> & {
+type CreateUserInput = Omit<RegisterDto, 'password'> & {
   passwordHash: string;
-  lga: string | null;
 };
 
 @Injectable()
@@ -24,7 +22,9 @@ export class UsersService {
   ) {}
 
   async create(userData: CreateUserInput): Promise<User> {
-    const existing = await this.findByEmail(userData.email);
+    const existing = await this.usersRepo.findOne({
+      where: { email: userData.email },
+    });
     if (existing) {
       throw new ConflictException('Email already registered.');
     }
@@ -39,16 +39,6 @@ export class UsersService {
 
   async findById(id: string): Promise<User | null> {
     return this.usersRepo.findOne({ where: { id } });
-  }
-
-  async updateProducts(userId: string, products: string[]): Promise<User> {
-    const user = await this.findById(userId);
-    if (!user) {
-      throw new NotFoundException('User not found.');
-    }
-
-    user.products = products;
-    return this.usersRepo.save(user);
   }
 
   async updateRefreshToken(

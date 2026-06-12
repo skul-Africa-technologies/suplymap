@@ -21,27 +21,18 @@ export class TradersService {
       .createQueryBuilder('user')
       .select([
         'user.id',
-        'user.fullName',
-        'user.role',
-        'user.state',
-        'user.lga',
-        'user.products',
+        'user.firstName',
+        'user.lastName',
+        'user.industry',
+        'user.email',
         'user.rating',
         'user.totalRatings',
         'user.verified',
       ])
       .where('user.id != :self', { self: requestingUserId })
-      .andWhere(":product = ANY(string_to_array(user.products, ','))", {
-        product: query.product,
+      .andWhere('LOWER(user.industry) LIKE LOWER(:product)', {
+        product: `%${query.product}%`,
       });
-
-    if (query.state) {
-      qb.andWhere('LOWER(user.state) = LOWER(:state)', { state: query.state });
-    }
-
-    if (query.role) {
-      qb.andWhere('user.role = :role', { role: query.role });
-    }
 
     qb.orderBy('user.verified', 'DESC')
       .addOrderBy('user.rating', 'DESC')
@@ -63,7 +54,6 @@ export class TradersService {
 
     return plainToInstance(TraderSummaryDto, user, {
       excludeExtraneousValues: true,
-      groups: ['profile'],
     });
   }
 }

@@ -9,41 +9,25 @@ import {
 import { StockPost } from '../../stock/entities/stock-post.entity';
 import { Rating } from '../../ratings/entities/rating.entity';
 
-export enum TraderRole {
-  RETAILER = 'retailer',
-  WHOLESALER = 'wholesaler',
-  DISTRIBUTOR = 'distributor',
-  MANUFACTURER = 'manufacturer',
-}
-
 @Entity('users')
 export class User {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
 
-  @Column({ name: 'full_name' })
-  fullName!: string;
+  @Column({ name: 'first_name' })
+  firstName!: string;
+
+  @Column({ name: 'last_name' })
+  lastName!: string;
+
+  @Column()
+  industry!: string;
 
   @Column({ unique: true })
   email!: string;
 
-  @Column()
-  phone!: string;
-
   @Column({ name: 'password_hash' })
   passwordHash!: string;
-
-  @Column({ type: 'enum', enum: TraderRole })
-  role!: TraderRole;
-
-  @Column({ type: 'simple-array' })
-  products!: string[];
-
-  @Column()
-  state!: string;
-
-  @Column({ type: 'text', nullable: true })
-  lga!: string | null;
 
   @Column({ type: 'decimal', precision: 3, scale: 2, default: 0 })
   rating!: number;
@@ -63,7 +47,7 @@ export class User {
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt!: Date;
 
-  @OneToMany(() => StockPost, (post) => post.trader)
+  @OneToMany(() => StockPost, (post) => post.trader, { eager: false })
   stockPosts!: StockPost[];
 
   @OneToMany(() => Rating, (rating) => rating.rater)

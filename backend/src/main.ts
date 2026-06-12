@@ -52,8 +52,8 @@ async function bootstrap() {
 
   // 📘 Swagger
   const swaggerConfig = new DocumentBuilder()
-    .setTitle('SkulAfrica API')
-    .setDescription('API documentation for SkulAfrica backend')
+    .setTitle('suplymap')
+    .setDescription('API documentation for suplymap backend')
     .setVersion('1.0')
     .addBearerAuth()
     .build();
