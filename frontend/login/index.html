@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - SupplyMap</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#4F46E5',
+              accent: '#6366F1',
+              deep: '#1E1B4B',
+            },
+            app: {
+              bg: '#F8FAFC',
+              card: '#FFFFFF',
+              border: '#E2E8F0',
+            },
+            text: {
+              primary: '#0F172A',
+              secondary: '#64748B',
+            },
+            status: {
+              error: '#EF4444',
+              warning: '#F59E0B',
+              success: '#22C55E',
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .fade-in {
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-app-bg flex items-center justify-center px-4 py-12">
+  <div class="w-full max-w-md bg-app-card rounded-2xl border border-app-border p-8 md:p-10 shadow-sm fade-in">
+    
+    <!-- Logo -->
+    <div class="flex items-center justify-center gap-2.5">
+      <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center">
+        <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+          <path d="M2 17l10 5 10-5"></path>
+          <path d="M2 12l10 5 10-5"></path>
+        </svg>
+      </div>
+      <span class="text-xl font-bold text-brand-deep">SupplyMap</span>
+    </div>
+
+    <!-- Heading -->
+    <div class="text-center mt-6 mb-1">
+      <h1 class="text-2xl font-bold text-text-primary">Welcome back</h1>
+    </div>
+    <p class="text-sm text-text-secondary text-center mb-8">Sign in to your account</p>
+
+    <!-- Success Banner (shown after registration) -->
+    <div id="successBanner" class="hidden bg-emerald-50 border border-emerald-200 rounded-lg px-4 py-3 mb-6 items-start gap-2.5">
+      <svg class="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+      <p class="text-sm text-emerald-700">Account created successfully! Please check your email, then sign in.</p>
+    </div>
+
+    <!-- Error Banner -->
+    <div id="apiError" class="hidden bg-red-50 border border-status-error/30 rounded-lg px-4 py-3 mb-6 items-start gap-2.5">
+      <svg class="w-4 h-4 text-status-error mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+      <p class="text-sm text-status-error"></p>
+    </div>
+
+    <form id="loginForm" novalidate class="space-y-5">
+      <!-- Email -->
+      <div class="flex flex-col gap-1.5">
+        <label for="email" class="text-sm font-medium text-text-primary">Email</label>
+        <div class="relative">
+          <div class="absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          </div>
+          <input 
+            type="email" 
+            id="email" 
+            name="email"
+            placeholder="you@company.com"
+            autocomplete="email"
+            autofocus
+            class="w-full h-11 pl-10 pr-4 text-sm rounded-lg border border-app-border bg-app-card text-text-primary outline-none transition-all duration-200 placeholder:text-text-secondary/60 focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20"
+          >
+        </div>
+        <p id="emailError" class="text-xs text-status-error hidden items-center gap-1">
+          <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          <span></span>
+        </p>
+      </div>
+
+      <!-- Password -->
+      <div class="flex flex-col gap-1.5">
+        <label for="password" class="text-sm font-medium text-text-primary">Password</label>
+        <div class="relative">
+          <input 
+            type="password" 
+            id="password" 
+            name="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            class="w-full h-11 px-4 pr-10 text-sm rounded-lg border border-app-border bg-app-card text-text-primary outline-none transition-all duration-200 placeholder:text-text-secondary/60 focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20"
+          >
+          <button type="button" onclick="togglePassword()" class="absolute right-3 top-1/2 -translate-y-1/2 text-text-secondary hover:text-text-primary transition-colors cursor-pointer">
+            <svg class="w-4 h-4 eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            <svg class="w-4 h-4 eye-closed hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"></path><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path><line x1="2" x2="22" y1="2" y2="22"></line></svg>
+          </button>
+        </div>
+        <p id="passwordError" class="text-xs text-status-error hidden items-center gap-1">
+          <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          <span></span>
+        </p>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" id="submitBtn" class="w-full inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold bg-brand-primary text-white hover:bg-brand-accent transition-all duration-200 cursor-pointer shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent disabled:opacity-50 disabled:cursor-not-allowed">
+        <span id="submitText">Sign in</span>
+        <svg id="submitIcon" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        <svg id="submitSpinner" class="w-4 h-4 animate-spin hidden" viewBox="0 0 24 24" fill="none"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path></svg>
+      </button>
+    </form>
+
+    <!-- Register link -->
+    <p class="mt-8 text-center text-sm text-text-secondary">
+      Don't have an account?
+      <a href="/register/" class="text-brand-primary font-medium hover:text-brand-accent hover:underline transition-colors">Create one</a>
+    </p>
+  </div>
+
+  <script src="../js/login.js"></script>
+</body>
+</html>
