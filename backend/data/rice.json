@@ -1,0 +1,335 @@
+[
+    {
+        "state_name": "Abia",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Adamawa",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Akwa Ibom",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Anambra",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Bauchi",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Bayelsa",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Benue",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Borno",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Cross River",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Delta",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Ebonyi",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Edo",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Ekiti",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Enugu",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "FCT - Abuja",
+        "product": "Rice",
+        "demand_score": 81,
+        "supply_score": 65,
+        "trend": "stable",
+        "shortage_risk": "medium",
+        "opportunity": false
+    },
+    {
+        "state_name": "Gombe",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Imo",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Jigawa",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Kaduna",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Kano",
+        "product": "Rice",
+        "demand_score": 81,
+        "supply_score": 65,
+        "trend": "stable",
+        "shortage_risk": "medium",
+        "opportunity": false
+    },
+    {
+        "state_name": "Katsina",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Kebbi",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Kogi",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Kwara",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Lagos",
+        "product": "Rice",
+        "demand_score": 81,
+        "supply_score": 65,
+        "trend": "stable",
+        "shortage_risk": "medium",
+        "opportunity": false
+    },
+    {
+        "state_name": "Nasarawa",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Niger",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Ogun",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Ondo",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Osun",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Oyo",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Plateau",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Rivers",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Sokoto",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Taraba",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Yobe",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Zamfara",
+        "product": "Rice",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    }
+]

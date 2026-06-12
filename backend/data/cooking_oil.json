@@ -1,0 +1,335 @@
+[
+    {
+        "state_name": "Abia",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Adamawa",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Akwa Ibom",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Anambra",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Bauchi",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Bayelsa",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Benue",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Borno",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Cross River",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Delta",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Ebonyi",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Edo",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Ekiti",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Enugu",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "FCT - Abuja",
+        "product": "Cooking Oil",
+        "demand_score": 81,
+        "supply_score": 65,
+        "trend": "stable",
+        "shortage_risk": "medium",
+        "opportunity": false
+    },
+    {
+        "state_name": "Gombe",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Imo",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Jigawa",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Kaduna",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Kano",
+        "product": "Cooking Oil",
+        "demand_score": 81,
+        "supply_score": 65,
+        "trend": "stable",
+        "shortage_risk": "medium",
+        "opportunity": false
+    },
+    {
+        "state_name": "Katsina",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Kebbi",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Kogi",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Kwara",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Lagos",
+        "product": "Cooking Oil",
+        "demand_score": 81,
+        "supply_score": 65,
+        "trend": "stable",
+        "shortage_risk": "medium",
+        "opportunity": false
+    },
+    {
+        "state_name": "Nasarawa",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Niger",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Ogun",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Ondo",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Osun",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Oyo",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Plateau",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Rivers",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Sokoto",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Taraba",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Yobe",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    },
+    {
+        "state_name": "Zamfara",
+        "product": "Cooking Oil",
+        "demand_score": 60,
+        "supply_score": 65,
+        "trend": "falling",
+        "shortage_risk": "low",
+        "opportunity": false
+    }
+]

@@ -1,0 +1,1677 @@
+{
+    "rice": [
+        {
+            "state_name": "Abia",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Adamawa",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Akwa Ibom",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Anambra",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Bauchi",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Bayelsa",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Benue",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Borno",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Cross River",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Delta",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ebonyi",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Edo",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ekiti",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Enugu",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "FCT - Abuja",
+            "product": "Rice",
+            "demand_score": 81,
+            "supply_score": 65,
+            "trend": "stable",
+            "shortage_risk": "medium",
+            "opportunity": false
+        },
+        {
+            "state_name": "Gombe",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Imo",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Jigawa",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kaduna",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kano",
+            "product": "Rice",
+            "demand_score": 81,
+            "supply_score": 65,
+            "trend": "stable",
+            "shortage_risk": "medium",
+            "opportunity": false
+        },
+        {
+            "state_name": "Katsina",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kebbi",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kogi",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kwara",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Lagos",
+            "product": "Rice",
+            "demand_score": 81,
+            "supply_score": 65,
+            "trend": "stable",
+            "shortage_risk": "medium",
+            "opportunity": false
+        },
+        {
+            "state_name": "Nasarawa",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Niger",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ogun",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ondo",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Osun",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Oyo",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Plateau",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Rivers",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Sokoto",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Taraba",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Yobe",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Zamfara",
+            "product": "Rice",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        }
+    ],
+    "cement": [
+        {
+            "state_name": "Abia",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Adamawa",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Akwa Ibom",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Anambra",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Bauchi",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Bayelsa",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Benue",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Borno",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Cross River",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Delta",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ebonyi",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Edo",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ekiti",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Enugu",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "FCT - Abuja",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Gombe",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Imo",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Jigawa",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kaduna",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kano",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Katsina",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kebbi",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kogi",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kwara",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Lagos",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Nasarawa",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Niger",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ogun",
+            "product": "Cement",
+            "demand_score": 75,
+            "supply_score": 65,
+            "trend": "stable",
+            "shortage_risk": "medium",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ondo",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Osun",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Oyo",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Plateau",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Rivers",
+            "product": "Cement",
+            "demand_score": 75,
+            "supply_score": 65,
+            "trend": "stable",
+            "shortage_risk": "medium",
+            "opportunity": false
+        },
+        {
+            "state_name": "Sokoto",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Taraba",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Yobe",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Zamfara",
+            "product": "Cement",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        }
+    ],
+    "sugar": [
+        {
+            "state_name": "Abia",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Adamawa",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Akwa Ibom",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Anambra",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Bauchi",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Bayelsa",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Benue",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Borno",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Cross River",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Delta",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ebonyi",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Edo",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ekiti",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Enugu",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "FCT - Abuja",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Gombe",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Imo",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Jigawa",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kaduna",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kano",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Katsina",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kebbi",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kogi",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kwara",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Lagos",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Nasarawa",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Niger",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ogun",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ondo",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Osun",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Oyo",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Plateau",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Rivers",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Sokoto",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Taraba",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Yobe",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Zamfara",
+            "product": "Sugar",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        }
+    ],
+    "flour": [
+        {
+            "state_name": "Abia",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Adamawa",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Akwa Ibom",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Anambra",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Bauchi",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Bayelsa",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Benue",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Borno",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Cross River",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Delta",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ebonyi",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Edo",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ekiti",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Enugu",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "FCT - Abuja",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Gombe",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Imo",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Jigawa",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kaduna",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kano",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Katsina",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kebbi",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kogi",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kwara",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Lagos",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Nasarawa",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Niger",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ogun",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ondo",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Osun",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Oyo",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Plateau",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Rivers",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Sokoto",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Taraba",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Yobe",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Zamfara",
+            "product": "Flour",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        }
+    ],
+    "cooking_oil": [
+        {
+            "state_name": "Abia",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Adamawa",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Akwa Ibom",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Anambra",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Bauchi",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Bayelsa",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Benue",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Borno",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Cross River",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Delta",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ebonyi",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Edo",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ekiti",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Enugu",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "FCT - Abuja",
+            "product": "Cooking Oil",
+            "demand_score": 81,
+            "supply_score": 65,
+            "trend": "stable",
+            "shortage_risk": "medium",
+            "opportunity": false
+        },
+        {
+            "state_name": "Gombe",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Imo",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Jigawa",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kaduna",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kano",
+            "product": "Cooking Oil",
+            "demand_score": 81,
+            "supply_score": 65,
+            "trend": "stable",
+            "shortage_risk": "medium",
+            "opportunity": false
+        },
+        {
+            "state_name": "Katsina",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kebbi",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kogi",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Kwara",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Lagos",
+            "product": "Cooking Oil",
+            "demand_score": 81,
+            "supply_score": 65,
+            "trend": "stable",
+            "shortage_risk": "medium",
+            "opportunity": false
+        },
+        {
+            "state_name": "Nasarawa",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Niger",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ogun",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Ondo",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Osun",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Oyo",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Plateau",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Rivers",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Sokoto",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Taraba",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Yobe",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        },
+        {
+            "state_name": "Zamfara",
+            "product": "Cooking Oil",
+            "demand_score": 60,
+            "supply_score": 65,
+            "trend": "falling",
+            "shortage_risk": "low",
+            "opportunity": false
+        }
+    ]
+}
