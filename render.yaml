@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: mapgoods-nigeria-api
+    runtime: node
+    plan: starter
+    rootDir: backend
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromGroup: mapgoods-database
+      - key: JWT_ACCESS_SECRET
+        sync: false
+      - key: JWT_REFRESH_SECRET
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ANTHROPIC_MODEL
+        value: claude-3-haiku-20240307
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: PORT
+        value: 10000
