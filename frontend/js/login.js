@@ -103,7 +103,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
   submitSpinner.classList.remove('hidden');
   
   try {
-    const response = await fetch('/api/auth/login', {
+    const response = await fetch('https://suplymap.onrender.com/api/v1/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
