@@ -40,7 +40,7 @@ export default function Login() {
   const onSubmit = async (data: LoginFormData) => {
     setApiError('');
     try {
-      const response = await api.post('/api/auth/login', {
+      const response = await api.post('https://suplymap.onrender.com/api/auth/login', {
         email: data.email,
         password: data.password,
       });
