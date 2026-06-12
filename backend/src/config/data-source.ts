@@ -1,15 +1,22 @@
 import 'reflect-metadata';
 import { config as dotenvConfig } from 'dotenv';
-import { ConfigService } from '@nestjs/config';
 import { DataSource, DataSourceOptions } from 'typeorm';
-import { databaseConfig } from './database.config';
 
 dotenvConfig({ path: '.env' });
 
-const configService = new ConfigService();
-const options = databaseConfig(configService) as DataSourceOptions;
+const options: DataSourceOptions = {
+  type: 'postgres',
+  url: process.env.DATABASE_URL,
+  entities: [__dirname + '/../**/*.entity.{js,ts}'],
+  migrations: [
+    __dirname + '/../../migrations/*.{js,ts}',
+    __dirname + '/../../dist/migrations/*.{js,ts}',
+  ],
+  synchronize: false,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+};
 
-export default new DataSource({
-  ...options,
-  migrations: ['./migrations/*.ts'],
-});
+export default new DataSource(options);
+
