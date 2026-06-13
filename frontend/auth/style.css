@@ -1,0 +1,130 @@
+/* ── SuplyMap Auth Styles ──────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Input base */
+.input-field {
+  height: 40px;
+  font-size: 0.875rem;
+  color: #000101;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #0672B5;
+  box-shadow: 0 0 0 3px rgba(6, 114, 181, 0.08);
+}
+
+.input-field.is-error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.08);
+}
+
+.input-field.is-valid {
+  border-color: #42A351;
+}
+
+/* Select reset */
+select.input-field {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+select.input-field option[disabled] {
+  color: #9CA3AF;
+}
+
+/* Step indicators on left panel */
+.step-indicator[data-step].is-active .step-dot {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.step-indicator[data-step].is-active .step-num {
+  color: #ffffff;
+}
+
+.step-indicator[data-step].is-active .step-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.step-indicator[data-step].is-done .step-dot {
+  background-color: #42A351;
+  border-color: #42A351;
+}
+
+.step-indicator[data-step].is-done .step-num {
+  display: none;
+}
+
+.step-indicator[data-step].is-done .step-check {
+  display: block !important;
+}
+
+.step-indicator[data-step].is-done .step-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Password strength bars */
+.strength-bar {
+  transition: background-color 0.2s ease;
+}
+
+/* Animate loader */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 0.8s linear infinite;
+}
+
+/* Step transition */
+.step-exit {
+  animation: stepOut 0.2s ease forwards;
+}
+
+.step-enter {
+  animation: stepIn 0.25s ease forwards;
+}
+
+@keyframes stepOut {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(-16px); }
+}
+
+@keyframes stepIn {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .step-exit,
+  .step-enter,
+  .animate-spin,
+  .strength-bar,
+  .input-field,
+  #progressBar {
+    animation: none !important;
+    transition: none !important;
+  }
+}
