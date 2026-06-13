@@ -1,346 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create Account - SupplyMap</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Account — SuplyMap</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css"/>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             brand: {
-              primary: '#4F46E5',
-              accent: '#6366F1',
-              deep: '#1E1B4B',
-            },
-            app: {
-              bg: '#F8FAFC',
-              card: '#FFFFFF',
-              border: '#E2E8F0',
-            },
-            text: {
-              primary: '#0F172A',
-              secondary: '#64748B',
-            },
-            status: {
-              error: '#EF4444',
-              warning: '#F59E0B',
-              success: '#22C55E',
-            },
+              blue:       '#0672B5',
+              green:      '#42A351',
+              teal:       '#1D715F',
+              softblue:   '#4F8EAC',
+              lightteal:  '#8DB6AD',
+              bg:         '#F5F7FA',
+              text:       '#000101',
+              secondary:  '#4A4A4A',
+              muted:      '#9CA3AF',
+            }
           },
-        },
-      },
-    };
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
   </script>
-  <style>
-    .step { display: none; }
-    .step.active { display: block; }
-    
-    .fade-in {
-      animation: fadeIn 0.25s ease-out forwards;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateX(20px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    
-    .fade-out {
-      animation: fadeOut 0.2s ease-in forwards;
-    }
-    
-    @keyframes fadeOut {
-      from { opacity: 1; transform: translateX(0); }
-      to { opacity: 0; transform: translateX(-20px); }
-    }
-    
-    select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-    }
-  </style>
+  <link rel="stylesheet" href="css/auth.css"/>
 </head>
-<body class="min-h-screen bg-app-bg flex items-center justify-center px-4 py-12">
-  <div class="w-full max-w-md bg-app-card rounded-2xl border border-app-border p-8 md:p-10 shadow-sm">
-    
-    <!-- Logo -->
-    <div class="flex items-center justify-center gap-2.5">
-      <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center">
-        <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-          <path d="M2 17l10 5 10-5"></path>
-          <path d="M2 12l10 5 10-5"></path>
-        </svg>
-      </div>
-      <span class="text-xl font-bold text-brand-deep">SupplyMap</span>
-    </div>
+<body class="font-sans bg-brand-bg text-brand-text antialiased">
 
-    <!-- Heading -->
-    <div class="text-center mt-6 mb-1">
-      <h1 class="text-2xl font-bold text-text-primary">Create your account</h1>
-    </div>
-    <p class="text-sm text-text-secondary text-center mb-8">Join thousands of supply chain teams</p>
+  <div class="min-h-screen flex">
 
-    <!-- Progress bar -->
-    <div class="mb-8">
-      <div class="flex justify-between text-xs text-text-secondary mb-2">
-        <span>Step <span id="currentStepNum">1</span> of 4</span>
-        <span id="progressPercent">25%</span>
-      </div>
-      <div class="h-1.5 w-full rounded-full bg-app-border overflow-hidden">
-        <div id="progressBar" class="h-full rounded-full bg-brand-primary transition-all duration-500 ease-out" style="width: 25%"></div>
-      </div>
-    </div>
+    <!-- ── Left Panel ─────────────────────────────────────── -->
+    <div class="hidden lg:flex lg:w-[52%] bg-brand-teal relative overflow-hidden flex-col">
 
-    <!-- Form Container -->
-    <form id="registerForm" novalidate>
-      
-      <!-- Step 1: Full Name -->
-      <div class="step active" data-step="1">
-        <h2 class="text-base font-semibold text-text-primary mb-6">What's your name?</h2>
-        <div class="space-y-6">
-          <div class="flex flex-col gap-1.5">
-            <label for="fullName" class="text-sm font-medium text-text-primary">Full name</label>
-            <input 
-              type="text" 
-              id="fullName" 
-              name="fullName" 
-              placeholder="e.g. Amina Johnson"
-              autocomplete="name"
-              class="w-full h-11 px-4 text-sm rounded-lg border border-app-border bg-app-card text-text-primary outline-none transition-all duration-200 placeholder:text-text-secondary/60 focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20"
-            >
-            <p id="fullNameError" class="text-xs text-status-error hidden items-center gap-1">
-              <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-              <span></span>
-            </p>
-          </div>
-          <button type="button" onclick="nextStep()" class="w-full inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold bg-brand-primary text-white hover:bg-brand-accent transition-all duration-200 cursor-pointer shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent">
-            Continue
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-          </button>
-        </div>
-      </div>
+      <svg class="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80"  cy="120" r="6" fill="white"/>
+        <circle cx="220" cy="80"  r="6" fill="white"/>
+        <circle cx="380" cy="160" r="6" fill="white"/>
+        <circle cx="520" cy="100" r="6" fill="white"/>
+        <circle cx="150" cy="280" r="6" fill="white"/>
+        <circle cx="320" cy="300" r="6" fill="white"/>
+        <circle cx="480" cy="260" r="6" fill="white"/>
+        <circle cx="60"  cy="440" r="6" fill="white"/>
+        <circle cx="200" cy="420" r="6" fill="white"/>
+        <circle cx="370" cy="460" r="6" fill="white"/>
+        <circle cx="540" cy="400" r="6" fill="white"/>
+        <circle cx="120" cy="580" r="6" fill="white"/>
+        <circle cx="290" cy="600" r="6" fill="white"/>
+        <circle cx="450" cy="560" r="6" fill="white"/>
+        <circle cx="80"  cy="720" r="6" fill="white"/>
+        <circle cx="260" cy="740" r="6" fill="white"/>
+        <circle cx="420" cy="700" r="6" fill="white"/>
+        <circle cx="560" cy="680" r="6" fill="white"/>
+        <line x1="80"  y1="120" x2="220" y2="80"  stroke="white" stroke-width="1"/>
+        <line x1="220" y1="80"  x2="380" y2="160" stroke="white" stroke-width="1"/>
+        <line x1="380" y1="160" x2="520" y2="100" stroke="white" stroke-width="1"/>
+        <line x1="80"  y1="120" x2="150" y2="280" stroke="white" stroke-width="1"/>
+        <line x1="220" y1="80"  x2="320" y2="300" stroke="white" stroke-width="1"/>
+        <line x1="380" y1="160" x2="480" y2="260" stroke="white" stroke-width="1"/>
+        <line x1="150" y1="280" x2="320" y2="300" stroke="white" stroke-width="1"/>
+        <line x1="320" y1="300" x2="480" y2="260" stroke="white" stroke-width="1"/>
+        <line x1="150" y1="280" x2="60"  y2="440" stroke="white" stroke-width="1"/>
+        <line x1="320" y1="300" x2="200" y2="420" stroke="white" stroke-width="1"/>
+        <line x1="480" y1="260" x2="370" y2="460" stroke="white" stroke-width="1"/>
+        <line x1="480" y1="260" x2="540" y2="400" stroke="white" stroke-width="1"/>
+        <line x1="60"  y1="440" x2="200" y2="420" stroke="white" stroke-width="1"/>
+        <line x1="200" y1="420" x2="370" y2="460" stroke="white" stroke-width="1"/>
+        <line x1="370" y1="460" x2="540" y2="400" stroke="white" stroke-width="1"/>
+        <line x1="60"  y1="440" x2="120" y2="580" stroke="white" stroke-width="1"/>
+        <line x1="200" y1="420" x2="290" y2="600" stroke="white" stroke-width="1"/>
+        <line x1="370" y1="460" x2="450" y2="560" stroke="white" stroke-width="1"/>
+        <line x1="120" y1="580" x2="290" y2="600" stroke="white" stroke-width="1"/>
+        <line x1="290" y1="600" x2="450" y2="560" stroke="white" stroke-width="1"/>
+        <line x1="120" y1="580" x2="80"  y2="720" stroke="white" stroke-width="1"/>
+        <line x1="290" y1="600" x2="260" y2="740" stroke="white" stroke-width="1"/>
+        <line x1="450" y1="560" x2="420" y2="700" stroke="white" stroke-width="1"/>
+        <line x1="540" y1="400" x2="560" y2="680" stroke="white" stroke-width="1"/>
+      </svg>
 
-      <!-- Step 2: Industry -->
-      <div class="step" data-step="2">
-        <h2 class="text-base font-semibold text-text-primary mb-2">What industry are you in?</h2>
-        <p class="text-sm text-text-secondary mb-6">We'll tailor your experience based on your sector.</p>
-        
-        <div class="space-y-4">
-          <div class="flex flex-col gap-1.5">
-            <label for="industry" class="text-sm font-medium text-text-primary">Industry</label>
-            <select 
-              id="industry" 
-              name="industry"
-              class="w-full h-11 px-4 text-sm rounded-lg border border-app-border bg-app-card text-text-primary outline-none cursor-pointer transition-all duration-200 appearance-none pr-10 focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20"
-            >
-              <option disabled selected value="">Select your industry</option>
-              <optgroup label="Manufacturing & Production">
-                <option value="Automotive Manufacturing">Automotive Manufacturing</option>
-                <option value="Electronics Manufacturing">Electronics Manufacturing</option>
-                <option value="Food & Beverage Production">Food & Beverage Production</option>
-                <option value="Pharmaceutical Manufacturing">Pharmaceutical Manufacturing</option>
-                <option value="Textile & Apparel">Textile & Apparel</option>
-                <option value="Chemical Manufacturing">Chemical Manufacturing</option>
-              </optgroup>
-              <optgroup label="Logistics & Distribution">
-                <option value="Freight & Shipping">Freight & Shipping</option>
-                <option value="Warehousing & Storage">Warehousing & Storage</option>
-                <option value="Last-Mile Delivery">Last-Mile Delivery</option>
-                <option value="Cold Chain Logistics">Cold Chain Logistics</option>
-                <option value="3PL / 4PL Services">3PL / 4PL Services</option>
-              </optgroup>
-              <optgroup label="Retail & E-Commerce">
-                <option value="Retail (Brick & Mortar)">Retail (Brick & Mortar)</option>
-                <option value="E-Commerce">E-Commerce</option>
-                <option value="Omnichannel Retail">Omnichannel Retail</option>
-                <option value="Consumer Goods">Consumer Goods</option>
-              </optgroup>
-              <optgroup label="Technology & Services">
-                <option value="SaaS / Software">SaaS / Software</option>
-                <option value="IT Hardware">IT Hardware</option>
-                <option value="Consulting & Advisory">Consulting & Advisory</option>
-                <option value="Telecommunications">Telecommunications</option>
-              </optgroup>
-              <optgroup label="Resources & Energy">
-                <option value="Oil & Gas">Oil & Gas</option>
-                <option value="Mining & Metals">Mining & Metals</option>
-                <option value="Renewable Energy">Renewable Energy</option>
-                <option value="Agriculture & Farming">Agriculture & Farming</option>
-              </optgroup>
-              <optgroup label="Other">
-                <option value="Other">Other</option>
-              </optgroup>
-            </select>
-            <p id="industryError" class="text-xs text-status-error hidden items-center gap-1">
-              <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-              <span></span>
-            </p>
-          </div>
-          
-          <!-- Other Industry Input (hidden by default) -->
-          <div id="otherIndustryWrapper" class="hidden">
-            <div class="flex flex-col gap-1.5">
-              <label for="otherIndustry" class="text-sm font-medium text-text-primary">Please describe your industry</label>
-              <input 
-                type="text" 
-                id="otherIndustry" 
-                name="otherIndustry"
-                placeholder="e.g. Space Tourism, Vertical Farming..."
-                class="w-full h-11 px-4 text-sm rounded-lg border border-app-border bg-app-card text-text-primary outline-none transition-all duration-200 placeholder:text-text-secondary/60 focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20"
-              >
+      <div class="relative z-10 flex flex-col h-full p-12 xl:p-16">
+        <div>
+          <img src="assets/logo.png" alt="SuplyMap" class="h-8 brightness-0 invert" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+          <div class="hidden items-center gap-2">
+            <div class="w-7 h-7 rounded bg-white/20 flex items-center justify-center">
+              <i class="ri-map-pin-2-line text-white text-sm"></i>
             </div>
+            <span class="text-white font-semibold text-lg tracking-tight">SuplyMap</span>
           </div>
         </div>
-        
-        <div class="flex justify-between gap-3 mt-6">
-          <button type="button" onclick="prevStep()" class="inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold text-text-secondary hover:text-text-primary hover:bg-app-border/50 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="m12 19-7-7 7-7"></path></svg>
-            Back
-          </button>
-          <button type="button" onclick="nextStep()" class="inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold bg-brand-primary text-white hover:bg-brand-accent transition-all duration-200 cursor-pointer shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent">
-            Continue
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-          </button>
-        </div>
-      </div>
 
-      <!-- Step 3: Email -->
-      <div class="step" data-step="3">
-        <h2 class="text-base font-semibold text-text-primary mb-2">Your work email</h2>
-        <p class="text-sm text-text-secondary mb-6">We'll send your account confirmation here.</p>
-        
-        <div class="space-y-6">
-          <div class="flex flex-col gap-1.5">
-            <label for="email" class="text-sm font-medium text-text-primary">Work email</label>
-            <div class="relative">
-              <div class="absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary">
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+        <div class="flex-1 flex flex-col justify-center">
+          <p class="text-white/60 text-sm font-medium uppercase tracking-widest mb-6">Get started</p>
+          <h1 class="text-white text-4xl xl:text-5xl font-bold leading-[1.1] mb-6">
+            Join teams that<br/>
+            <span class="text-brand-green">move smarter.</span>
+          </h1>
+          <p class="text-white/70 text-base leading-relaxed max-w-sm">
+            Set up your account in under two minutes. Connect your first supplier node and start building supply chain clarity from day one.
+          </p>
+
+          <!-- Steps preview -->
+          <div class="mt-10 space-y-3">
+            <div class="step-indicator flex items-center gap-3" data-step="1">
+              <div class="step-dot w-7 h-7 rounded-full border border-white/30 flex items-center justify-center flex-shrink-0 transition-all">
+                <span class="text-white/60 text-xs font-semibold step-num">1</span>
+                <i class="ri-check-line text-white text-xs hidden step-check"></i>
               </div>
-              <input 
-                type="email" 
-                id="email" 
-                name="email"
-                placeholder="you@company.com"
-                autocomplete="email"
-                class="w-full h-11 pl-10 pr-4 text-sm rounded-lg border border-app-border bg-app-card text-text-primary outline-none transition-all duration-200 placeholder:text-text-secondary/60 focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20"
-              >
+              <span class="text-white/60 text-sm step-label transition-all">Personal information</span>
             </div>
-            <p id="emailError" class="text-xs text-status-error hidden items-center gap-1">
-              <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-              <span></span>
-            </p>
+            <div class="step-indicator flex items-center gap-3" data-step="2">
+              <div class="step-dot w-7 h-7 rounded-full border border-white/30 flex items-center justify-center flex-shrink-0 transition-all">
+                <span class="text-white/60 text-xs font-semibold step-num">2</span>
+                <i class="ri-check-line text-white text-xs hidden step-check"></i>
+              </div>
+              <span class="text-white/60 text-sm step-label transition-all">Account credentials</span>
+            </div>
           </div>
         </div>
-        
-        <div class="flex justify-between gap-3 mt-6">
-          <button type="button" onclick="prevStep()" class="inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold text-text-secondary hover:text-text-primary hover:bg-app-border/50 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="m12 19-7-7 7-7"></path></svg>
-            Back
-          </button>
-          <button type="button" onclick="nextStep()" class="inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold bg-brand-primary text-white hover:bg-brand-accent transition-all duration-200 cursor-pointer shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent">
-            Continue
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-          </button>
+
+        <div class="flex items-center gap-3 mt-auto">
+          <div class="w-1.5 h-1.5 rounded-full bg-brand-green"></div>
+          <span class="text-white/50 text-xs">Trusted by operations teams across 40+ industries</span>
         </div>
       </div>
+    </div>
 
-      <!-- Step 4: Password -->
-      <div class="step" data-step="4">
-        <h2 class="text-base font-semibold text-text-primary mb-2">Secure your account</h2>
-        <p class="text-sm text-text-secondary mb-6">Use at least 8 characters with a number or symbol.</p>
-        
-        <!-- API Error -->
-        <div id="apiError" class="hidden bg-red-50 border border-status-error/30 rounded-lg px-4 py-3 mb-6 items-start gap-2.5">
-          <svg class="w-4 h-4 text-status-error mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-          <p class="text-sm text-status-error"></p>
+    <!-- ── Right Panel — Progressive Form ────────────────── -->
+    <div class="flex-1 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-24 py-12">
+
+      <!-- Mobile logo -->
+      <div class="lg:hidden mb-10">
+        <img src="assets/logo.png" alt="SuplyMap" class="h-7" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"/>
+        <span class="hidden font-semibold text-brand-text">SuplyMap</span>
+      </div>
+
+      <div class="w-full max-w-sm xl:max-w-md mx-auto lg:mx-0">
+
+        <!-- Step counter (mobile) -->
+        <div class="flex items-center gap-2 mb-6 lg:hidden">
+          <span id="mobileStepText" class="text-xs font-medium text-brand-muted uppercase tracking-wider">Step 1 of 2</span>
         </div>
-        
-        <div class="space-y-4">
-          <!-- Password -->
-          <div>
-            <div class="flex flex-col gap-1.5">
-              <label for="password" class="text-sm font-medium text-text-primary">Create password</label>
+
+        <!-- Progress bar -->
+        <div class="mb-8">
+          <div class="h-1 bg-gray-100 rounded-full overflow-hidden">
+            <div id="progressBar" class="h-full bg-brand-blue rounded-full transition-all duration-500" style="width: 50%"></div>
+          </div>
+        </div>
+
+        <!-- Error banner -->
+        <div id="errorBanner" class="hidden mb-5 px-4 py-3 rounded border border-red-200 bg-red-50 flex items-start gap-3">
+          <i class="ri-error-warning-line text-red-500 mt-0.5 flex-shrink-0"></i>
+          <p id="errorText" class="text-red-700 text-sm"></p>
+        </div>
+
+        <!-- ── Step 1: Personal info ── -->
+        <div id="step1">
+          <div class="mb-8">
+            <h2 class="text-2xl font-bold text-brand-text mb-1.5">Personal information</h2>
+            <p class="text-brand-secondary text-sm">Tell us who you are and what you do</p>
+          </div>
+
+          <!-- Full Name -->
+          <div class="mb-5">
+            <label for="fullname" class="block text-sm font-medium text-brand-text mb-1.5">Full name</label>
+            <div class="relative">
+              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-brand-muted pointer-events-none">
+                <i class="ri-user-line text-base"></i>
+              </span>
+              <input
+                id="fullname"
+                type="text"
+                name="fullname"
+                autocomplete="name"
+                placeholder="Jane Doe"
+                class="input-field w-full pl-9 pr-4 py-2.5 text-sm text-brand-text bg-white border border-gray-200 rounded focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/10 placeholder:text-brand-muted transition"
+              />
+            </div>
+            <p id="fullnameError" class="hidden mt-1.5 text-xs text-red-600"></p>
+          </div>
+
+          <!-- Industry -->
+          <div class="mb-6">
+            <label for="industry" class="block text-sm font-medium text-brand-text mb-1.5">Industry</label>
+            <div class="relative">
+              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-brand-muted pointer-events-none">
+                <i class="ri-building-2-line text-base"></i>
+              </span>
+              <select
+                id="industry"
+                name="industry"
+                class="input-field w-full pl-9 pr-8 py-2.5 text-sm text-brand-text bg-white border border-gray-200 rounded focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/10 transition appearance-none"
+              >
+                <option value="" disabled selected>Select your industry</option>
+                <option value="manufacturing">Manufacturing</option>
+                <option value="retail">Retail &amp; E-commerce</option>
+                <option value="logistics">Logistics &amp; Freight</option>
+                <option value="food_beverage">Food &amp; Beverage</option>
+                <option value="pharma">Pharmaceuticals &amp; Healthcare</option>
+                <option value="automotive">Automotive</option>
+                <option value="technology">Technology &amp; Electronics</option>
+                <option value="agriculture">Agriculture</option>
+                <option value="construction">Construction</option>
+                <option value="energy">Energy &amp; Utilities</option>
+                <option value="fashion">Fashion &amp; Apparel</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="absolute right-3 top-1/2 -translate-y-1/2 text-brand-muted pointer-events-none">
+                <i class="ri-arrow-down-s-line text-base"></i>
+              </span>
+            </div>
+            <p id="industryError" class="hidden mt-1.5 text-xs text-red-600"></p>
+          </div>
+
+          <button
+            type="button"
+            id="nextBtn"
+            class="w-full bg-brand-blue hover:bg-[#055fa0] text-white font-semibold text-sm py-2.5 px-4 rounded transition flex items-center justify-center gap-2"
+          >
+            Continue
+            <i class="ri-arrow-right-line text-base"></i>
+          </button>
+        </div>
+
+        <!-- ── Step 2: Account credentials ── -->
+        <div id="step2" class="hidden">
+          <div class="mb-8">
+            <button type="button" id="backBtn" class="flex items-center gap-1.5 text-sm text-brand-secondary hover:text-brand-text transition mb-5 -ml-0.5 font-medium">
+              <i class="ri-arrow-left-line text-base"></i>
+              Back
+            </button>
+            <h2 class="text-2xl font-bold text-brand-text mb-1.5">Account credentials</h2>
+            <p class="text-brand-secondary text-sm">Set your email address and a strong password</p>
+          </div>
+
+          <form id="registerForm" novalidate>
+
+            <!-- Email -->
+            <div class="mb-5">
+              <label for="email" class="block text-sm font-medium text-brand-text mb-1.5">Work email</label>
               <div class="relative">
-                <input 
-                  type="password" 
-                  id="password" 
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-brand-muted pointer-events-none">
+                  <i class="ri-mail-line text-base"></i>
+                </span>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  autocomplete="email"
+                  placeholder="you@company.com"
+                  class="input-field w-full pl-9 pr-4 py-2.5 text-sm text-brand-text bg-white border border-gray-200 rounded focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/10 placeholder:text-brand-muted transition"
+                />
+              </div>
+              <p id="emailError" class="hidden mt-1.5 text-xs text-red-600"></p>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+              <label for="password" class="block text-sm font-medium text-brand-text mb-1.5">Password</label>
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-brand-muted pointer-events-none">
+                  <i class="ri-lock-2-line text-base"></i>
+                </span>
+                <input
+                  id="password"
+                  type="password"
                   name="password"
-                  placeholder="Min. 8 characters"
                   autocomplete="new-password"
-                  class="w-full h-11 px-4 pr-10 text-sm rounded-lg border border-app-border bg-app-card text-text-primary outline-none transition-all duration-200 placeholder:text-text-secondary/60 focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20"
-                >
-                <button type="button" onclick="togglePassword('password')" class="absolute right-3 top-1/2 -translate-y-1/2 text-text-secondary hover:text-text-primary transition-colors cursor-pointer">
-                  <svg class="w-4 h-4 eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                  <svg class="w-4 h-4 eye-closed hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"></path><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path><line x1="2" x2="22" y1="2" y2="22"></line></svg>
+                  placeholder="Min. 8 characters"
+                  class="input-field w-full pl-9 pr-10 py-2.5 text-sm text-brand-text bg-white border border-gray-200 rounded focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/10 placeholder:text-brand-muted transition"
+                />
+                <button type="button" id="togglePassword" class="absolute right-3 top-1/2 -translate-y-1/2 text-brand-muted hover:text-brand-secondary transition">
+                  <i class="ri-eye-line text-base" id="eyeIcon"></i>
                 </button>
               </div>
-              <p id="passwordError" class="text-xs text-status-error hidden items-center gap-1">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                <span></span>
-              </p>
+              <p id="passwordError" class="hidden mt-1.5 text-xs text-red-600"></p>
             </div>
-            
-            <!-- Password Strength -->
-            <div id="passwordStrength" class="hidden mt-2 items-center gap-2">
-              <div class="flex gap-1 flex-1">
-                <div class="h-1 flex-1 rounded-full bg-app-border" data-segment="1"></div>
-                <div class="h-1 flex-1 rounded-full bg-app-border" data-segment="2"></div>
-                <div class="h-1 flex-1 rounded-full bg-app-border" data-segment="3"></div>
-                <div class="h-1 flex-1 rounded-full bg-app-border" data-segment="4"></div>
-              </div>
-              <span class="text-xs font-medium text-text-secondary" id="strengthLabel"></span>
-            </div>
-          </div>
-          
-          <!-- Confirm Password -->
-          <div class="flex flex-col gap-1.5">
-            <label for="confirmPassword" class="text-sm font-medium text-text-primary">Confirm password</label>
-            <div class="relative">
-              <input 
-                type="password" 
-                id="confirmPassword" 
-                name="confirmPassword"
-                placeholder="Repeat your password"
-                autocomplete="new-password"
-                class="w-full h-11 px-4 pr-10 text-sm rounded-lg border border-app-border bg-app-card text-text-primary outline-none transition-all duration-200 placeholder:text-text-secondary/60 focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20"
-              >
-              <button type="button" onclick="togglePassword('confirmPassword')" class="absolute right-3 top-1/2 -translate-y-1/2 text-text-secondary hover:text-text-primary transition-colors cursor-pointer">
-                <svg class="w-4 h-4 eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                <svg class="w-4 h-4 eye-closed hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"></path><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path><line x1="2" x2="22" y1="2" y2="22"></line></svg>
-              </button>
-            </div>
-            <p id="confirmPasswordError" class="text-xs text-status-error hidden items-center gap-1">
-              <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-              <span></span>
-            </p>
-          </div>
-        </div>
-        
-        <div class="flex justify-between gap-3 mt-6">
-          <button type="button" onclick="prevStep()" class="inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold text-text-secondary hover:text-text-primary hover:bg-app-border/50 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="m12 19-7-7 7-7"></path></svg>
-            Back
-          </button>
-          <button type="submit" id="submitBtn" class="inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold bg-brand-primary text-white hover:bg-brand-accent transition-all duration-200 cursor-pointer shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent disabled:opacity-50 disabled:cursor-not-allowed">
-            <span id="submitText">Create Account</span>
-            <svg id="submitIcon" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <svg id="submitSpinner" class="w-4 h-4 animate-spin hidden" viewBox="0 0 24 24" fill="none"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path></svg>
-          </button>
-        </div>
-      </div>
-    </form>
 
-    <!-- Login link -->
-    <p class="mt-8 text-center text-sm text-text-secondary">
-      Already have an account?
-      <a href="/login/" class="text-brand-primary font-medium hover:text-brand-accent hover:underline transition-colors">Sign in</a>
-    </p>
+            <!-- Password strength -->
+            <div id="strengthContainer" class="mb-5 hidden">
+              <div class="flex gap-1 mb-1.5">
+                <div class="strength-bar h-1 flex-1 rounded-full bg-gray-100 transition-all" id="bar1"></div>
+                <div class="strength-bar h-1 flex-1 rounded-full bg-gray-100 transition-all" id="bar2"></div>
+                <div class="strength-bar h-1 flex-1 rounded-full bg-gray-100 transition-all" id="bar3"></div>
+                <div class="strength-bar h-1 flex-1 rounded-full bg-gray-100 transition-all" id="bar4"></div>
+              </div>
+              <p id="strengthLabel" class="text-xs text-brand-muted"></p>
+            </div>
+
+            <!-- Submit -->
+            <button
+              type="submit"
+              id="submitBtn"
+              class="w-full bg-brand-green hover:bg-[#399345] text-white font-semibold text-sm py-2.5 px-4 rounded transition flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              <span id="btnText">Create account</span>
+              <span id="btnSpinner" class="hidden">
+                <i class="ri-loader-4-line animate-spin text-base"></i>
+              </span>
+            </button>
+
+          </form>
+        </div>
+
+        <p class="mt-6 text-sm text-center text-brand-secondary">
+          Already have an account?
+          <a href="login.html" class="text-brand-blue hover:text-brand-teal font-semibold transition ml-1">Sign in</a>
+        </p>
+
+      </div>
+    </div>
+
   </div>
 
-  <script src="../js/register.js"></script>
+  <script src="js/register.js"></script>
 </body>
 </html>
