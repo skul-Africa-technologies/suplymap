@@ -295,7 +295,7 @@ registerForm.addEventListener('submit', async (e) => {
       }
 
       /* Redirect */
-      window.location.href = '/';
+      window.location.href = '/login';
     } else {
       const msg =
         data.message ||
