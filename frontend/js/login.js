@@ -6,20 +6,25 @@ if (urlParams.get('registered') === 'true') {
   successBanner.classList.add('flex');
 }
 
+// Key used to mark authenticated state in localStorage
+const AUTH_KEY = 'suplymap_auth';
+
 function togglePassword() {
   const input = document.getElementById('password');
-  const button = input.nextElementSibling;
-  const eyeOpen = button.querySelector('.eye-open');
-  const eyeClosed = button.querySelector('.eye-closed');
+  const button = input && input.nextElementSibling;
+  const eyeOpen = button && button.querySelector('.eye-open');
+  const eyeClosed = button && button.querySelector('.eye-closed');
+  
+  if (!input) return;
   
   if (input.type === 'password') {
     input.type = 'text';
-    eyeOpen.classList.add('hidden');
-    eyeClosed.classList.remove('hidden');
+    if (eyeOpen) eyeOpen.classList.add('hidden');
+    if (eyeClosed) eyeClosed.classList.remove('hidden');
   } else {
     input.type = 'password';
-    eyeOpen.classList.remove('hidden');
-    eyeClosed.classList.add('hidden');
+    if (eyeOpen) eyeOpen.classList.remove('hidden');
+    if (eyeClosed) eyeClosed.classList.add('hidden');
   }
 }
 
@@ -58,6 +63,14 @@ function clearError(fieldId) {
 document.querySelectorAll('input').forEach(input => {
   input.addEventListener('input', () => clearError(input.id));
 });
+
+// Logout helper: clear auth and redirect to login
+function logout() {
+  try { localStorage.removeItem(AUTH_KEY); } catch (e) {}
+  if (!window.location.pathname.startsWith('/login')) {
+    window.location.href = '/login/';
+  }
+}
 
 // Form submission
 document.getElementById('loginForm').addEventListener('submit', async function(e) {
@@ -114,7 +127,16 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
       throw new Error(data.message || 'Invalid credentials');
     }
     
-    // Success - redirect to dashboard
+    // Success - store auth marker and redirect to dashboard
+    const data = await response.json().catch(() => ({}));
+    try {
+      const token = data.token || null;
+      if (token) {
+        localStorage.setItem(AUTH_KEY, token);
+      } else {
+        localStorage.setItem(AUTH_KEY, JSON.stringify({ ok: true, at: Date.now() }));
+      }
+    } catch (e) {}
     window.location.href = '/dashboard/';
     
   } catch (error) {
