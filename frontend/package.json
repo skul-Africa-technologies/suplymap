@@ -1,8 +1,0 @@
-{
-  "name": "supplymap",
-  "private": true,
-  "version": "1.0.0",
-  "scripts": {
-    "build": "echo 'Static HTML - no build needed' && mkdir -p dist && cp -r index.html register login js dist/"
-  }
-}
