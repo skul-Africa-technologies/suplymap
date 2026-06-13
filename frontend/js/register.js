@@ -11,7 +11,7 @@ const registerForm    = document.getElementById('registerForm');
 const progressBar     = document.getElementById('progressBar');
 const mobileStepText  = document.getElementById('mobileStepText');
 
-const fullnameInput   = document.getElementById('fullname');
+const fullnameInput   = document.getElementById('fullName');
 const industrySelect  = document.getElementById('industry');
 const emailInput      = document.getElementById('email');
 const passwordInput   = document.getElementById('password');
@@ -268,7 +268,7 @@ registerForm.addEventListener('submit', async (e) => {
 
   /* Build payload */
   const payload = {
-    fullname: fullnameInput.value.trim(),
+    fullName: fullnameInput.value.trim(),
     industry: industrySelect.value,
     email:    emailVal,
     password: passwordVal,
