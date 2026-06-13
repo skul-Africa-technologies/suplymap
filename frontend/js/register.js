@@ -1,280 +1,315 @@
+/* ── SuplyMap Register ──────────────────────────────────────── */
+
+const API_BASE = 'https://suplymap.onrender.com/api/v1';
+
+/* ── DOM refs ── */
+const step1El         = document.getElementById('step1');
+const step2El         = document.getElementById('step2');
+const nextBtn         = document.getElementById('nextBtn');
+const backBtn         = document.getElementById('backBtn');
+const registerForm    = document.getElementById('registerForm');
+const progressBar     = document.getElementById('progressBar');
+const mobileStepText  = document.getElementById('mobileStepText');
+
+const fullnameInput   = document.getElementById('fullname');
+const industrySelect  = document.getElementById('industry');
+const emailInput      = document.getElementById('email');
+const passwordInput   = document.getElementById('password');
+
+const fullnameError   = document.getElementById('fullnameError');
+const industryError   = document.getElementById('industryError');
+const emailError      = document.getElementById('emailError');
+const passwordError   = document.getElementById('passwordError');
+
+const errorBanner     = document.getElementById('errorBanner');
+const errorText       = document.getElementById('errorText');
+
+const submitBtn       = document.getElementById('submitBtn');
+const btnText         = document.getElementById('btnText');
+const btnSpinner      = document.getElementById('btnSpinner');
+
+const togglePwd       = document.getElementById('togglePassword');
+const eyeIcon         = document.getElementById('eyeIcon');
+const strengthContainer = document.getElementById('strengthContainer');
+const strengthLabel   = document.getElementById('strengthLabel');
+const bars            = [
+  document.getElementById('bar1'),
+  document.getElementById('bar2'),
+  document.getElementById('bar3'),
+  document.getElementById('bar4'),
+];
+
+/* Left panel step indicators */
+const stepIndicators  = document.querySelectorAll('.step-indicator');
+
+/* ── State ── */
 let currentStep = 1;
-const totalSteps = 4;
 
-// Elements
-const form = document.getElementById('registerForm');
-const industrySelect = document.getElementById('industry');
-const otherIndustryWrapper = document.getElementById('otherIndustryWrapper');
-const passwordInput = document.getElementById('password');
-const passwordStrengthEl = document.getElementById('passwordStrength');
+/* ── Helpers ── */
+function showError(el, msg) {
+  el.textContent = msg;
+  el.classList.remove('hidden');
+}
 
-// Show/hide other industry input
-industrySelect.addEventListener('change', function() {
-  if (this.value === 'Other') {
-    otherIndustryWrapper.classList.remove('hidden');
-    document.getElementById('otherIndustry').focus();
-  } else {
-    otherIndustryWrapper.classList.add('hidden');
-  }
-  clearError('industry');
-});
+function clearError(el) {
+  el.textContent = '';
+  el.classList.add('hidden');
+}
 
-// Password strength checker
-passwordInput.addEventListener('input', function() {
-  updatePasswordStrength(this.value);
-  clearError('password');
-});
+function setInputState(input, state) {
+  input.classList.remove('is-error', 'is-valid');
+  if (state) input.classList.add(state);
+}
 
-function updatePasswordStrength(password) {
-  if (!password) {
-    passwordStrengthEl.classList.add('hidden');
-    passwordStrengthEl.classList.remove('flex');
+function setLoading(loading) {
+  submitBtn.disabled = loading;
+  btnText.textContent = loading ? 'Creating account…' : 'Create account';
+  btnSpinner.classList.toggle('hidden', !loading);
+}
+
+function showBanner(msg) {
+  errorText.textContent = msg;
+  errorBanner.classList.remove('hidden');
+  errorBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function hideBanner() {
+  errorBanner.classList.add('hidden');
+}
+
+/* ── Update UI for step ── */
+function updateStepUI(step) {
+  currentStep = step;
+  progressBar.style.width = step === 1 ? '50%' : '100%';
+  mobileStepText.textContent = `Step ${step} of 2`;
+
+  /* Left panel indicators */
+  stepIndicators.forEach((el) => {
+    const n = parseInt(el.dataset.step, 10);
+    el.classList.remove('is-active', 'is-done');
+    if (n < step) el.classList.add('is-done');
+    if (n === step) el.classList.add('is-active');
+  });
+}
+
+/* ── Animate step transition ── */
+function showStep(incoming, outgoing) {
+  outgoing.classList.add('step-exit');
+  setTimeout(() => {
+    outgoing.classList.add('hidden');
+    outgoing.classList.remove('step-exit');
+    incoming.classList.remove('hidden');
+    incoming.classList.add('step-enter');
+    setTimeout(() => incoming.classList.remove('step-enter'), 300);
+  }, 200);
+}
+
+/* ── Validators ── */
+function validateFullname(value) {
+  if (!value.trim()) return 'Full name is required.';
+  if (value.trim().length < 2) return 'Enter your full name.';
+  return null;
+}
+
+function validateIndustry(value) {
+  if (!value) return 'Please select your industry.';
+  return null;
+}
+
+function validateEmail(value) {
+  if (!value.trim()) return 'Email address is required.';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Enter a valid email address.';
+  return null;
+}
+
+function validatePassword(value) {
+  if (!value) return 'Password is required.';
+  if (value.length < 8) return 'Password must be at least 8 characters.';
+  return null;
+}
+
+/* ── Password strength ── */
+function getStrength(value) {
+  let score = 0;
+  if (value.length >= 8)  score++;
+  if (value.length >= 12) score++;
+  if (/[A-Z]/.test(value) && /[a-z]/.test(value)) score++;
+  if (/[0-9]/.test(value)) score++;
+  if (/[^A-Za-z0-9]/.test(value)) score++;
+  return Math.min(Math.ceil(score * 4 / 5), 4);
+}
+
+const STRENGTH_CONFIG = [
+  { label: '',        color: 'bg-gray-100' },
+  { label: 'Weak',    color: 'bg-red-400'  },
+  { label: 'Fair',    color: 'bg-yellow-400' },
+  { label: 'Good',    color: 'bg-brand-softblue' },
+  { label: 'Strong',  color: 'bg-brand-green' },
+];
+
+function updateStrength(value) {
+  if (!value) {
+    strengthContainer.classList.add('hidden');
     return;
   }
-  
-  passwordStrengthEl.classList.remove('hidden');
-  passwordStrengthEl.classList.add('flex');
-  
-  const hasNumber = /[0-9]/.test(password);
-  const hasSymbol = /[^a-zA-Z0-9]/.test(password);
-  const hasUppercase = /[A-Z]/.test(password);
-  
-  let strength, segments, color, textColor;
-  
-  if (password.length < 6) {
-    strength = 'Weak'; segments = 1; color = 'bg-status-error'; textColor = 'text-status-error';
-  } else if (password.length >= 10 && hasNumber && hasSymbol && hasUppercase) {
-    strength = 'Strong'; segments = 4; color = 'bg-status-success'; textColor = 'text-status-success';
-  } else if (password.length >= 8 && (hasNumber || hasSymbol)) {
-    strength = 'Good'; segments = 3; color = 'bg-brand-accent'; textColor = 'text-brand-accent';
-  } else {
-    strength = 'Fair'; segments = 2; color = 'bg-status-warning'; textColor = 'text-status-warning';
-  }
-  
-  const segmentEls = passwordStrengthEl.querySelectorAll('[data-segment]');
-  segmentEls.forEach((el, i) => {
-    el.className = 'h-1 flex-1 rounded-full ' + (i < segments ? color : 'bg-app-border');
+  strengthContainer.classList.remove('hidden');
+  const score = getStrength(value);
+  const config = STRENGTH_CONFIG[score];
+
+  bars.forEach((bar, i) => {
+    bar.className = `strength-bar h-1 flex-1 rounded-full transition-all ${i < score ? config.color : 'bg-gray-100'}`;
   });
-  
-  const labelEl = document.getElementById('strengthLabel');
-  labelEl.textContent = strength;
-  labelEl.className = 'text-xs font-medium ' + textColor;
+
+  strengthLabel.textContent = score > 0 ? `${config.label} password` : '';
+  strengthLabel.className = `text-xs ${score <= 1 ? 'text-red-500' : score === 2 ? 'text-yellow-600' : 'text-brand-secondary'}`;
 }
 
-function togglePassword(fieldId) {
-  const input = document.getElementById(fieldId);
-  const button = input.nextElementSibling;
-  const eyeOpen = button.querySelector('.eye-open');
-  const eyeClosed = button.querySelector('.eye-closed');
-  
-  if (input.type === 'password') {
-    input.type = 'text';
-    eyeOpen.classList.add('hidden');
-    eyeClosed.classList.remove('hidden');
-  } else {
-    input.type = 'password';
-    eyeOpen.classList.remove('hidden');
-    eyeClosed.classList.add('hidden');
-  }
-}
+/* ── Live validation ── */
+fullnameInput.addEventListener('blur', () => {
+  const err = validateFullname(fullnameInput.value);
+  err ? (showError(fullnameError, err), setInputState(fullnameInput, 'is-error'))
+      : (clearError(fullnameError), setInputState(fullnameInput, 'is-valid'));
+});
 
-function showError(fieldId, message) {
-  const errorEl = document.getElementById(fieldId + 'Error');
-  const input = document.getElementById(fieldId);
-  
-  if (errorEl) {
-    errorEl.querySelector('span').textContent = message;
-    errorEl.classList.remove('hidden');
-    errorEl.classList.add('flex');
-  }
-  
-  if (input) {
-    input.classList.remove('border-app-border', 'focus:border-brand-accent', 'focus:ring-brand-accent/20');
-    input.classList.add('border-status-error', 'focus:border-status-error', 'focus:ring-status-error/20');
-  }
-}
+industrySelect.addEventListener('blur', () => {
+  const err = validateIndustry(industrySelect.value);
+  err ? (showError(industryError, err), setInputState(industrySelect, 'is-error'))
+      : (clearError(industryError), setInputState(industrySelect, 'is-valid'));
+});
 
-function clearError(fieldId) {
-  const errorEl = document.getElementById(fieldId + 'Error');
-  const input = document.getElementById(fieldId);
-  
-  if (errorEl) {
-    errorEl.classList.add('hidden');
-    errorEl.classList.remove('flex');
-  }
-  
-  if (input) {
-    input.classList.add('border-app-border', 'focus:border-brand-accent', 'focus:ring-brand-accent/20');
-    input.classList.remove('border-status-error', 'focus:border-status-error', 'focus:ring-status-error/20');
-  }
-}
+emailInput.addEventListener('blur', () => {
+  const err = validateEmail(emailInput.value);
+  err ? (showError(emailError, err), setInputState(emailInput, 'is-error'))
+      : (clearError(emailError), setInputState(emailInput, 'is-valid'));
+});
 
-function validateStep(step) {
-  let isValid = true;
-  
-  if (step === 1) {
-    const fullName = document.getElementById('fullName').value.trim();
-    if (fullName.length < 2) {
-      showError('fullName', 'Full name must be at least 2 characters');
-      isValid = false;
-    } else if (!/^[a-zA-Z\s'-]+$/.test(fullName)) {
-      showError('fullName', 'Only letters, spaces, hyphens and apostrophes allowed');
-      isValid = false;
-    } else {
-      clearError('fullName');
-    }
-  }
-  
-  if (step === 2) {
-    const industry = document.getElementById('industry').value;
-    const otherIndustry = document.getElementById('otherIndustry').value.trim();
-    
-    if (!industry) {
-      showError('industry', 'Please select your industry');
-      isValid = false;
-    } else if (industry === 'Other' && otherIndustry.length < 2) {
-      showError('industry', 'Please describe your industry (at least 2 characters)');
-      isValid = false;
-    } else {
-      clearError('industry');
-    }
-  }
-  
-  if (step === 3) {
-    const email = document.getElementById('email').value.trim();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-    if (!emailRegex.test(email)) {
-      showError('email', 'Enter a valid email address');
-      isValid = false;
-    } else {
-      clearError('email');
-    }
-  }
-  
-  if (step === 4) {
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
-    
-    if (password.length < 8) {
-      showError('password', 'Password must be at least 8 characters');
-      isValid = false;
-    } else if (!/[0-9]/.test(password)) {
-      showError('password', 'Must include at least one number');
-      isValid = false;
-    } else if (!/[^a-zA-Z0-9]/.test(password)) {
-      showError('password', 'Must include at least one special character');
-      isValid = false;
-    } else {
-      clearError('password');
-    }
-    
-    if (password !== confirmPassword) {
-      showError('confirmPassword', 'Passwords do not match');
-      isValid = false;
-    } else {
-      clearError('confirmPassword');
-    }
-  }
-  
-  return isValid;
-}
+passwordInput.addEventListener('input', () => {
+  updateStrength(passwordInput.value);
+  clearError(passwordError);
+  setInputState(passwordInput, null);
+  hideBanner();
+});
 
-function updateProgress() {
-  const percent = Math.round((currentStep / totalSteps) * 100);
-  document.getElementById('currentStepNum').textContent = currentStep;
-  document.getElementById('progressPercent').textContent = percent + '%';
-  document.getElementById('progressBar').style.width = percent + '%';
-}
+passwordInput.addEventListener('blur', () => {
+  const err = validatePassword(passwordInput.value);
+  err ? (showError(passwordError, err), setInputState(passwordInput, 'is-error'))
+      : (clearError(passwordError), setInputState(passwordInput, 'is-valid'));
+});
 
-function showStep(step) {
-  const newStepEl = document.querySelector(`[data-step="${step}"]`);
-  const currentStepEl = document.querySelector('.step.active');
-  
-  if (currentStepEl) {
-    currentStepEl.classList.remove('active');
+/* Clear on input */
+fullnameInput.addEventListener('input', () => { clearError(fullnameError); setInputState(fullnameInput, null); });
+industrySelect.addEventListener('change', () => { clearError(industryError); setInputState(industrySelect, null); });
+emailInput.addEventListener('input', () => { clearError(emailError); setInputState(emailInput, null); hideBanner(); });
+
+/* ── Toggle password visibility ── */
+togglePwd.addEventListener('click', () => {
+  const visible = passwordInput.type === 'text';
+  passwordInput.type = visible ? 'password' : 'text';
+  eyeIcon.className = visible ? 'ri-eye-line text-base' : 'ri-eye-off-line text-base';
+});
+
+/* ── Step 1 → Step 2 ── */
+nextBtn.addEventListener('click', () => {
+  const nameErr     = validateFullname(fullnameInput.value);
+  const industryErr = validateIndustry(industrySelect.value);
+  let hasError = false;
+
+  if (nameErr) {
+    showError(fullnameError, nameErr);
+    setInputState(fullnameInput, 'is-error');
+    hasError = true;
   }
-  
-  newStepEl.classList.add('active', 'fade-in');
-  setTimeout(() => newStepEl.classList.remove('fade-in'), 250);
-  
-  // Focus first input
-  const firstInput = newStepEl.querySelector('input, select');
-  if (firstInput) setTimeout(() => firstInput.focus(), 50);
-  
-  updateProgress();
-}
 
-function nextStep() {
-  if (!validateStep(currentStep)) return;
-  
-  if (currentStep < totalSteps) {
-    currentStep++;
-    showStep(currentStep);
+  if (industryErr) {
+    showError(industryError, industryErr);
+    setInputState(industrySelect, 'is-error');
+    hasError = true;
   }
-}
 
-function prevStep() {
-  if (currentStep > 1) {
-    currentStep--;
-    showStep(currentStep);
-  }
-}
+  if (hasError) return;
 
-// Form submission
-form.addEventListener('submit', async function(e) {
+  showStep(step2El, step1El);
+  updateStepUI(2);
+  emailInput.focus();
+});
+
+/* ── Step 2 → Step 1 ── */
+backBtn.addEventListener('click', () => {
+  hideBanner();
+  showStep(step1El, step2El);
+  updateStepUI(1);
+});
+
+/* ── Form submit ── */
+registerForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  
-  if (!validateStep(4)) return;
-  
-  const submitBtn = document.getElementById('submitBtn');
-  const submitIcon = document.getElementById('submitIcon');
-  const submitSpinner = document.getElementById('submitSpinner');
-  const apiError = document.getElementById('apiError');
-  
-  // Show loading
-  submitBtn.disabled = true;
-  submitIcon.classList.add('hidden');
-  submitSpinner.classList.remove('hidden');
-  apiError.classList.add('hidden');
-  apiError.classList.remove('flex');
-  
-  // Gather form data
-  const industry = document.getElementById('industry').value;
-  const formData = {
-    fullName: document.getElementById('fullName').value.trim(),
-    industry: industry === 'Other' ? document.getElementById('otherIndustry').value.trim() : industry,
-    email: document.getElementById('email').value.trim(),
-    password: document.getElementById('password').value,
+  hideBanner();
+
+  const emailVal    = emailInput.value.trim();
+  const passwordVal = passwordInput.value;
+
+  const emailErr = validateEmail(emailVal);
+  const pwErr    = validatePassword(passwordVal);
+  let hasError   = false;
+
+  if (emailErr) {
+    showError(emailError, emailErr);
+    setInputState(emailInput, 'is-error');
+    hasError = true;
+  }
+
+  if (pwErr) {
+    showError(passwordError, pwErr);
+    setInputState(passwordInput, 'is-error');
+    hasError = true;
+  }
+
+  if (hasError) return;
+
+  /* Build payload */
+  const payload = {
+    fullname: fullnameInput.value.trim(),
+    industry: industrySelect.value,
+    email:    emailVal,
+    password: passwordVal,
   };
-  
+
+  setLoading(true);
+
   try {
-    const response = await fetch('https://suplymap.onrender.com//api/auth/v1/register', {
+    const response = await fetch(`${API_BASE}/auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(payload),
     });
-    
-    if (!response.ok) {
-      const data = await response.json().catch(() => ({}));
-      throw new Error(data.message || 'Registration failed');
+
+    const data = await response.json();
+
+    if (response.ok) {
+      /* Store token if returned */
+      if (data.token) {
+        localStorage.setItem('sm_token', data.token);
+      }
+      if (data.data && data.data.token) {
+        localStorage.setItem('sm_token', data.data.token);
+      }
+
+      /* Redirect */
+      window.location.href = '/';
+    } else {
+      const msg =
+        data.message ||
+        data.error ||
+        (data.errors && data.errors[0] && data.errors[0].message) ||
+        'Registration failed. Please check your details and try again.';
+      showBanner(msg);
     }
-    
-    // Success - redirect to login
-    window.location.href = '/login/?registered=true';
-    
-  } catch (error) {
-    apiError.querySelector('p').textContent = error.message || 'Something went wrong. Please try again.';
-    apiError.classList.remove('hidden');
-    apiError.classList.add('flex');
+  } catch {
+    showBanner('Unable to connect. Check your internet connection and try again.');
   } finally {
-    submitBtn.disabled = false;
-    submitIcon.classList.remove('hidden');
-    submitSpinner.classList.add('hidden');
+    setLoading(false);
   }
 });
 
-// Clear errors on input
-document.querySelectorAll('input').forEach(input => {
-  input.addEventListener('input', () => clearError(input.id));
-});
+/* ── Init ── */
+updateStepUI(1);
